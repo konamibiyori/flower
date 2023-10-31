@@ -99,7 +99,7 @@ body {
 /* ーーーーーーーー　header　ーーーーーーーー */
 
 .header {
-  padding: 20px 30px;
+  padding: 15px 25px;
 }
 
 @media screen and (min-width: 768px) {
