@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 検索にヒットさせない -->
+    <meta name="robots" content="noindex" />
+    <!-- タイトル・ディスクリプション -->
+    <meta name="description" content="気軽にお花を楽しめる!FLOWER定期便 " />
+    <title>FLOWER 定期便</title>
+
+    <!-- Googleフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="icon" href="./favicon.ico" />
+
+    <!-- CSSの読み込み -->
+    <link rel="stylesheet" href="./css/lib/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header__logo">
+          <a href="#"><img src="./img/logo.png" alt="flora" /></a>
+        </h1>
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li>
+              <a href="#feature-point" class="header__nav-link">FLOWER定期便とは</a>
+            </li>
+            <li><a href="#course" class="header__nav-link">コース紹介</a></li>
+            <li><a href="#gallery" class="header__nav-link">お届けのお花</a></li>
+            <li><a href="#faq" class="header__nav-link">FAQ</a></li>
+            <li>
+              <a href="#contact" class="header__button button">お問い合わせ</a>
+            </li>
+          </ul>
+        </nav>
+        <button id="js-drawer-icon" class="header__open drawer-icon">
+          <span class="drawer-icon__bar"></span>
+          <span class="drawer-icon__bar"></span>
+          <span class="drawer-icon__bar"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- drawer -->
+    <div id="js-drawer-contents" class="drawer-contents">
+      <nav class="drawer-contents__menu">
+        <ul>
+          <li>
+            <a href="#feature-point" class="header__nav-link">FLOWER定期便とは</a>
+          </li>
+          <li><a href="#course" class="header__nav-link">コース紹介</a></li>
+          <li><a href="#gallery" class="header__nav-link">ギャラリー</a></li>
+          <li><a href="#faq" class="header__nav-link">FAQ</a></li>
+        </ul>
+        <div class="drawer-contents__button">
+          <a href="#contact" class="button button--type2">お問い合わせ</a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- main-visual -->
+    <div class="main-visual">
+      <div class="main-visual__inner inner">
+        <div class="main-visual__title">
+          <h3 class="main-visual__copy">気軽にお花を楽しめる</h3>
+          <h2 class="main-visual__main"><span class="en">FLOWER</span><br /><span class="ja">定期便</span></h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature-point -->
+    <section id="feature-point" class="feature-point">
+      <div class="feature-point__inner inner">
+        <h2 class="heading section__heading">FLOWER定期便とは</h2>
+        <div class="feature-point__cards section fadeUpEffect">
+          <figure>
+            <div class="figcaption__image"><img src="./img/point1.jpg" alt="装飾:摘み取ったお花を扱う画像" /></div>
+            <!-- card1 -->
+            <figcaption>
+              <p class="figcaption__title">長持ちする新鮮なお花</p>
+              <p class="figcaption__text">届ける直前に摘み取った新鮮なお花だけを提携農園からお家まで最短２日でお届けします。</p>
+            </figcaption>
+          </figure>
+          <!-- card2 -->
+          <figure>
+            <div class="figcaption__image"><img src="./img/point2.jpg" alt="装飾:お花が箱に入ってる画像" /></div>
+            <figcaption>
+              <p class="figcaption__title">心ときめく新しい出会い</p>
+              <p class="figcaption__text">お花を心から愛するプロが季節に合わせたお花を選びます。お届けのパッケージは、丈夫さと通気性にこだわり、デリケートなお花をキレイにお届けします。</p>
+            </figcaption>
+          </figure>
+          <!-- card3 -->
+          <figure>
+            <div class="figcaption__image"><img src="./img/point3.jpg" alt="装飾:ポストとお花が写った画像" /></div>
+            <figcaption>
+              <p class="figcaption__title">気軽にお花を楽しめる</p>
+              <p class="figcaption__text">お花はポストや置き配でもお届け。希望しない週はスキップ可能で受取日を柔軟に変更できます。お届け日を増やすことも可能です。</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!--course-->
+    <section id="course" class="course">
+      <div class="course__inner inner">
+        <h2 class="heading section__heading">コース紹介</h2>
+        <div class="course__list">
+          <!-- course1 -->
+          <section id="otameshi" class="course__item fadeUpEffect">
+            <div class="course__image">
+              <img src="./img/course1.jpg" alt="装飾:お試しコースの4〜5本のお花が写ってる画像" />
+            </div>
+            <div class="course__depiction">
+              <div class="course__flower-number">
+                <span class="flower-number">お花の本数４〜５本</span>
+              </div>
+              <h3 class="course__name">
+                <span class="first-order">初回注文限定<br /></span>お試しコース
+              </h3>
+              <div class="course__price">
+                <div class="course__price-box">
+                  <span class="price">700</span>
+                  <span class="yen">円</span>
+                  <span class="slash">/</span>
+                  <span class="number-times">回</span>
+                </div>
+                <span class="postage-tax">（送料・税込）</span>
+              </div>
+            </div>
+          </section>
+          <!-- course2 -->
+          <section id="light" class="course__item fadeUpEffect">
+            <div class="course__image">
+              <img src="./img/course2.jpg" alt="装飾:ライトコースの6〜7本のお花が写ってる画像" />
+            </div>
+            <div class="course__depiction">
+              <div class="course__flower-number">
+                <span class="flower-number">お花の本数６〜７本</span>
+              </div>
+              <h3 class="course__name course__name-black">ライトコース</h3>
+              <div class="course__price">
+                <div class="course__price-box">
+                  <span class="price">1,500</span>
+                  <span class="yen">円</span>
+                  <span class="slash">/</span>
+                  <span class="number-times">回</span>
+                </div>
+                <span class="postage-tax">（送料・税込）</span>
+              </div>
+            </div>
+          </section>
+          <!-- course3 -->
+          <section id="standerd" class="course__item fadeUpEffect">
+            <div class="course__image">
+              <img src="./img/course3.jpg" alt="装飾:ライトコースの6〜7本のお花が写ってる画像" />
+            </div>
+            <div class="course__depiction">
+              <div class="course__flower-number">
+                <span class="flower-number">お花の本数8〜10本</span>
+              </div>
+              <h3 class="course__name course__name-black">スタンダード<br />コース</h3>
+              <div class="course__price">
+                <div class="course__price-box">
+                  <span class="price">2,000</span>
+                  <span class="yen">円</span>
+                  <span class="slash">/</span>
+                  <span class="number-times">回</span>
+                </div>
+                <span class="postage-tax">（送料・税込）</span>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- list end -->
+        <div class="course__button">
+          <a href="#" class="button">まずはお試しする</a>
+        </div>
+      </div>
+    </section>
+
+    <!--gallery-->
+    <section id="gallery" class="gallery">
+      <div class="gallery__inner inner">
+        <h2 class="heading heading--type2 section__heading">お届けのお花</h2>
+        <div class="gallery__slider">
+          <div id="js-gallery-swiper" class="swiper about-swiper swiper-initialized swiper-horizontal">
+            <div id="js-gallery-swiper-wrap" class="swiper-wrapper">
+              <div class="swiper-slide about-swiper__slide" style="width: 150px; margin-right: 10px">
+                <img src="./img/img_about-slide1.jpg" alt="写真:お試しコース用お花4〜5本が写ってる" />
+              </div>
+              <div class="swiper-slide about-swiper__slide swiper-slide-active" style="width: 150px; margin-right: 10px">
+                <img src="./img/img_about-slide2.jpg" alt="写真:ライトコース用お花6〜7本が写ってる" />
+              </div>
+              <div class="swiper-slide about-swiper__slide swiper-slide-active" style="width: 150px; margin-right: 10px">
+                <img src="./img/img_about-slide3.jpg" alt="写真:スタンダードコース用お花8〜10本が写ってる" />
+              </div>
+              <div class="swiper-slide about-swiper__slide swiper-slide-next" style="width: 150px; margin-right: 10px">
+                <img src="./img/img_about-slide4.jpg" alt="お試しコース用お花4〜5本が写ってる" />
+              </div>
+              <div class="swiper-slide about-swiper__slide" style="width: 150px; margin-right: 10px">
+                <img src="./img/img_about-slide5.jpg" alt="写真:ライトコース用お花6〜7本が写ってる" />
+              </div>
+              <div class="swiper-slide about-swiper__slide" style="width: 150px; margin-right: 10px">
+                <img src="./img/img_about-slide6.jpg" alt="写真:スタンダードコース用お花8〜10本が写ってる" />
+              </div>
+              <div class="swiper-slide about-swiper__slide" style="width: 150px; margin-right: 10px">
+                <img src="./img/img_about-slide1.jpg" alt="お試しコース用お花4〜5本が写ってる" />
+              </div>
+              <div class="swiper-slide about-swiper__slide swiper-slide-active" style="width: 150px; margin-right: 10px">
+                <img src="./img/img_about-slide2.jpg" alt="写真:ライトコース用お花6〜7本が写ってる" />
+              </div>
+              <div class="swiper-slide about-swiper__slide" style="width: 150px; margin-right: 10px">
+                <img src="./img/img_about-slide3.jpg" alt="写真:スタンダードコース用お花8〜10本が写ってる" />
+              </div>
+              <div class="swiper-slide about-swiper__slide" style="width: 150px; margin-right: 10px">
+                <img src="./img/img_about-slide4.jpg" alt="お試しコース用お花4〜5本が写ってる" />
+              </div>
+              <div class="swiper-slide about-swiper__slide" style="width: 150px; margin-right: 10px">
+                <img src="./img/img_about-slide5.jpg" alt="写真:ライトコース用お花6〜7本が写ってる" />
+              </div>
+              <div class="swiper-slide about-swiper__slide" style="width: 150px; margin-right: 10px">
+                <img src="./img/img_about-slide6.jpg" alt="写真:スタンダードコース用お花8〜10本が写ってる" />
+              </div>
+            </div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--FAQ -->
+    <section id="faq" class="faq">
+      <div class="faq__inner inner">
+        <h2 class="heading section__heading">FAQ</h2>
+
+        <div class="faq__contents">
+          <div class="faq__table">
+            <table class="faq__table-box">
+              <tbody>
+                <tr class="faq__table__row">
+                  <th class="faq__table__header">
+                    <span class="q-icon"><img src="./img/Q_icon.png" alt="装飾:Qアイコン" /></span>商品はいつ、どのように届きますか？
+                  </th>
+                  <td class="faq__table__data">お花の最適な期間に合わせてその月の配送期間を決定します。商品の出荷準備が整いましたら、日程の詳細をメールにてご連絡させていただきます。お花とジャーナルは同梱し、ヤマト宅急便にてお届けします。<br />なお、沖縄離島エリアへのお届けは現在行っておりません。</td>
+                </tr>
+                <tr class="faq__table__row">
+                  <th class="faq__table__header">
+                    <span class="q-icon"><img src="./img/Q_icon.png" alt="装飾:Qアイコン" /></span>配送の日時指定はできますか？
+                  </th>
+                  <td class="faq__table__data">
+                    毎号、メールにて配送日時を指定していただくフォームをお送りいたしますが、天候により、出荷の直前まで 確定しません。そのため、やむを得ずフォームでご指定いただいた日時にお届けが出来ない場合があります。<br />
+                    何卒ご理解いただけますよう お願い申し上げます。
+                  </td>
+                </tr>
+                <tr class="faq__table__row">
+                  <th class="faq__table__header">
+                    <span class="q-icon"><img src="./img/Q_icon.png" alt="装飾:Qアイコン" /></span>配送先の変更はできますか？
+                  </th>
+                  <td class="faq__table__data">
+                    配送日時指定フォームにお届け日をご指定いただく際に、合わせてその月のお届け先を変更いただけます。<br />
+                    別の場所でご利用されたい場合などに加えて、ギフトとしてご利用いただくことも可能です。
+                  </td>
+                </tr>
+                <tr class="faq__table__row">
+                  <th class="faq__table__header">
+                    <span class="q-icon"><img src="./img/Q_icon.png" alt="装飾:Qアイコン" /></span>解約をしたいのですが、どうしたら良いですか？
+                  </th>
+                  <td class="faq__table__data">
+                    お花の最適な期間に合わせてその月の配送期間を決定します。<br />
+                    解約をご希望の場合、毎月19日までにメール（<a href="#" target="_blank" class="link-text">info@flora.jp</a>）にてご連絡ください。FLOWER定期便は継続期間等を設けておりませんので、いつでも申請していただくことが可能です。
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact -->
+    <section id="contact" class="contact">
+      <div class="contact__inner inner">
+        <div class="contact__contents">
+          <div class="contact__title-box">
+            <h4 class="contact__copy">気軽にお花を楽しめる</h4>
+            <h3 class="contact__main"><span class="en">FLOWER</span><span class="ja">定期便</span></h3>
+          </div>
+          <div class="contact__3contens fadeUpEffect">
+            <div class="contact__course">
+              <div class="contact__speech-bubble">初回注文<br />限定</div>
+              <a href="#otameshi"><img src="./img/button1.png " alt="装飾：お試しコースのイメージ画像" /></a>
+            </div>
+            <div class="contact__course">
+              <a href="#light"><img src="./img/button2.png " alt="装飾：ライトコースのイメージ画像" /></a>
+            </div>
+            <div class="contact__course">
+              <a href="#standerd"><img src="./img/button3.png " alt="装飾：スタンダードコースのイメージ画像" /></a>
+            </div>
+          </div>
+          <div class="contact__button">
+            <a href="#" class="button">お問い合わせをする</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer　-->
+    <footer class="footer">
+      <div class="footer__inner inner">
+        <div class="footer__contents">
+          <div class="footer__left">
+            <div class="footer__logo">
+              <a href=""><img src="img/logo.png" alt="flora" /></a>
+            </div>
+            <div class="footer__center">
+              <ul class="footer__nav-list">
+                <li><a href="#feature-point" class="footer__nav-link">FLOWER定期便とは</a></li>
+                <li><a href="#course" class="footer__nav-link">コース紹介</a></li>
+                <li><a href="#gallery" class="footer__nav-link">お届けのお花</a></li>
+                <li><a href="#faq" class="footer__nav-link">FAQ</a></li>
+                <li><a href="#contact" class="footer__nav-link">お問い合わせ</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__right">
+              <ul class="footer__sns-list">
+                <li class="footer__sns-icon">
+                  <a href="" target="_blank"><img src="img/twitter 1.png" alt="twitter" /></a>
+                </li>
+                <li class="footer__sns-icon">
+                  <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram 1.png" alt="instagram" /></a>
+                </li>
+                <li class="footer__sns-icon">
+                  <a href="https://line.me/ja/" target="_blank"><img src="img/line 1.png" alt="instagram" /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer__copy">Copyright &copy; 2023 higa All rights reserved.</div>
+      </div>
+      <a href="#" class="pagetop" id="js-pagetop">
+        <img src="./img/pagetop-img.svg" alt="トップへ戻る" class="pagetop__icon" />
+      </a>
+    </footer>
+
+    <!-- Jsの読み込み -->
+    <script src="./js/lib/swiper-bundle.min.js" defer=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js" defer=""></script>
+    <script src="./js/script.js" defer=""></script>
+  </body>
+</html>
