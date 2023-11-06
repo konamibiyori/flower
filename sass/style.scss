@@ -7,6 +7,7 @@ $breakpoints: (
   xl: "screen and (min-width: 1200px)",
 );
 
+/* mqとはmediaーqueryの略 */
 @mixin mq($breakpoint: md) {
   @media #{map.get($breakpoints, $breakpoint)} {
     @content;
@@ -30,9 +31,8 @@ body {
 }
 
 /*ーーーーーーーー　共通項目　ーーーーーーーー */
-
 .inner {
-  padding-inline: 15px;
+  padding-inline: 15px; /* paddingの左右　padding-inline:*/
 
   @include mq(md) {
     margin-inline: auto; /* 要素中央寄せ */
@@ -41,10 +41,9 @@ body {
     max-width: calc($width-inner + 40px * 2);
   }
 }
-
 .heading {
   font-size: 20px;
-  line-height: 100%;
+  line-height: 100%; /* 44px */
   letter-spacing: 1.1px;
   text-align: center;
   padding-bottom: 50px;
@@ -61,7 +60,6 @@ body {
     font-size: 25px;
   }
 }
-
 /*ーーーーーーーー　ボタン共通　ーーーーーーー  */
 
 .button {
@@ -87,6 +85,12 @@ body {
     color: $main-color;
     font-weight: 600;
   }
+
+  &:hover {
+    background-color: $main-color;
+    color: #fff;
+    border: 1px solid #fff;
+  }
 }
 
 /*--------------------------------
@@ -103,13 +107,11 @@ body {
   animation-duration: 0.8s;
   animation-fill-mode: forwards;
 }
-
 @keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(40px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -119,7 +121,7 @@ body {
 /* ーーーーーーーー　header　ーーーーーーーー */
 
 .header {
-  padding: 20px 30px;
+  padding: 15px 25px;
 
   @include mq(md) {
     max-width: calc($width-inner + 30px * 2);
@@ -132,16 +134,17 @@ body {
     justify-content: space-between;
     vertical-align: middle;
   }
-
   &__logo {
+    @include mq(md) {
+      transition: opacity 0.3s;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
     img {
       width: 80px;
-      display: block;
-      transition: opacity 0.3s;
-
-      &:hover {
-        opacity: 0.5;
-      }
+      display: block; /* 余計な隙間ができないようにあててある */
 
       @include mq(md) {
         width: 90px;
@@ -152,7 +155,6 @@ body {
   &__nav {
     display: flex;
   }
-
   &__nav-list {
     display: none;
 
@@ -161,12 +163,10 @@ body {
       align-items: center;
       gap: 20px;
     }
-
     @include mq(xl) {
       gap: 40px;
     }
   }
-
   &__nav-link {
     color: $color-base;
     font-size: 15px;
@@ -182,17 +182,15 @@ body {
   &__open {
     padding-top: 5px;
   }
-
   .drawer-icon {
     position: relative;
-    width: 36px;
-    height: 18px;
+    width: 36px; /* :widthとheightを削除しても崩れなかった..... */
+    height: 18px; /* :widthとheightを削除しても崩れなかった..... */
     top: 18px;
     @include mq(md) {
       display: none;
     }
   }
-
   .drawer-icon__bar {
     position: absolute;
     top: 0;
@@ -201,12 +199,12 @@ body {
     height: 3px;
     border-radius: 6px;
     background: $color-base;
-    z-index: 51;
+    z-index: 51; /* 240行目の.drawer-contentsより前に表示させたかったのでz-index*/
     transition: transform 0.3s linear, top 0.3s linear;
-
+    /* :nth-of-typeは親要素のブロックの中で、何番目に現れるかという疑似要素 */
+    /* 似たような指定として「:nth-child」がある。こちらは要素を指定しない。今回はどちらを使ってもOK! */
     &:nth-of-type(1) {
     }
-
     &:nth-of-type(2) {
       top: 9px;
     }
@@ -214,12 +212,10 @@ body {
     &:nth-of-type(3) {
       top: 18px;
     }
-
     @include mq(md) {
       background: $main-color;
     }
   }
-
   .is-checked {
     .drawer-icon__bar {
       &:nth-of-type(1) {
@@ -237,18 +233,17 @@ body {
     }
   }
 }
-
 /*ーーーーーーーー　drawer　ーーーーーーー  */
 
 .drawer-contents {
   width: 320px;
   height: 100%;
-  position: fixed;
+  position: fixed; /* :固定して浮かせるイメージ */
   top: 0;
   right: 0;
   background: $main-color;
   z-index: 50; /* 重なり順を制御したいので「z-index」 */
-  padding: 80px 40px 40px;
+  padding: 80px 40px 40px; /* 今回は下のpaddingは必要ないけど仮で数字を入れてる状態 */
   transform: translateX(100%);
   transition: transform 0.3s;
 
@@ -256,10 +251,11 @@ body {
     transform: translateX(0);
   }
 
+  &__menu {
+  }
   ul {
     margin-top: 10px;
   }
-
   .header__nav-link {
     padding-bottom: 20px;
     display: flex;
@@ -289,6 +285,7 @@ body {
   position: relative;
   height: 470px;
   background: url(../img/sp_fv.jpg) no-repeat center center / cover;
+  /*背景画像のサイズ指定 画像幅が足りなくて左右余白ができたので、幅に画像の大きさを合わせるとき使う*/
 
   @include mq("md") {
     height: 600px;
@@ -355,13 +352,18 @@ body {
   }
 }
 
-/* ーーーーーーーー　Feature-pointーーーーーーーー */
+// br {
+//   display: none;
+//   @include mq(md) {
+//     display: inline; /* ＜br/＞解除*/
+//   }
+// }
 
+/* ーーーーーーーー　Feature-pointーーーーーーーー */
 .feature-point {
   padding-top: 60px;
   padding-bottom: 60px;
   background: linear-gradient(180deg, rgba(234, 232, 232, 0.14) 0%, #f8f8f8 50%, #f5f5f5 100%);
-
   @include mq(md) {
     padding-top: 60px;
   }
@@ -395,10 +397,25 @@ body {
     @include mq(md) {
       margin-inline: 0;
       width: 360px;
+      &:hover {
+        .figcaption__image {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
     }
+
     .figcaption__image {
       margin-bottom: 15px;
       @include mq(md) {
+        overflow: hidden; /* ②imgが1.1倍に拡大するようにしてるが、imageの枠から、はみ出ないように指示してる */
+
+        img {
+          // transition: all 0.3s ease 0s;
+          // transition: 0.3s;
+          transition: transform 0.5s; /* ③imgを動かしたいのでimgに指示する */
+        }
       }
 
       img {
@@ -415,6 +432,40 @@ body {
         padding-inline: 15px;
       }
     }
+    // .figcaption__number {
+    //   border-bottom: 3px solid #fff;
+    //   width: 70px;
+    //   transform: rotate(-8deg);
+    //   margin-top: 10px;
+    //   font-family: $font-family-sub;
+    //   color: $main-color;
+    //   font-style: italic;
+    //   @include mq(md) {
+    //   }
+
+    //   .point {
+    //     @include mq(md) {
+    //       font-size: 13px;
+    //     }
+    //     @include mq(la) {
+    //       font-size: 16px;
+    //     }
+    //   }
+
+    //   .point-number {
+    //     font-size: 20px;
+    //     display: inline-block;
+    //     margin-left: 2px;
+
+    //     @include mq(md) {
+    //       font-size: 16px;
+    //     }
+
+    //     @include mq(la) {
+    //       font-size: 20px;
+    //     }
+    //   }
+    // }
 
     .figcaption__title {
       color: $main-color;
@@ -430,7 +481,7 @@ body {
       text-align: justify;
       margin-top: 10px;
       font-size: 14px;
-      line-height: 166%;
+      line-height: 166%; /* 24.9px */
     }
   }
 }
@@ -467,6 +518,7 @@ body {
       align-items: center;
       display: flex;
       margin-top: 40px;
+      // justify-content: space-between;
     }
   }
 
@@ -477,17 +529,29 @@ body {
     }
   }
 
+  // &__item:not(:first-child) {
+  //   @include mq(md) {
+  //     margin-top: 40px;
+  //   }
+  // }
+
+  // &__item:not(:first-child) {
+  //   @include mq(md) {
+  //     margin-top: 40px;
+  //   }
+  // }
+
   &__image {
     position: relative;
     width: 100%;
-
     @include mq(md) {
       width: 55%;
+      // width: calc(530px / 1140px * 100%);
     }
+  }
 
-    img {
-      border-radius: 10px;
-    }
+  img {
+    border-radius: 10px;
   }
 
   &__depiction {
@@ -504,7 +568,6 @@ body {
     text-align: center;
     @include mq(md) {
     }
-
     .flower-number {
       margin-top: 8px;
       display: inline-flex;
@@ -524,7 +587,6 @@ body {
       }
     }
   }
-
   &__name {
     margin-top: 20px;
     margin-bottom: 15px;
@@ -538,28 +600,27 @@ body {
     &-black {
       color: $color-base;
     }
-
     @include mq(md) {
       font-size: 45px;
       margin-top: 22px;
       letter-spacing: 1.5px;
       margin-bottom: 16px;
     }
-
     @include mq(la) {
       font-size: 48px;
     }
-
     @include mq(xl) {
       font-size: 50px;
     }
-
     .first-order {
       display: block;
       font-weight: 600;
       font-size: 14px;
       margin-bottom: 3px;
     }
+  }
+
+  &__price {
   }
 
   &__price-box {
@@ -578,13 +639,11 @@ body {
         font-size: 30px;
       }
     }
-
     .yen,
     .number-times {
       font-size: 20px;
       font-weight: 600;
     }
-
     .slash {
       font-size: 20px;
       font-weight: 600;
@@ -627,11 +686,9 @@ body {
         padding: 20px 86px;
         font-size: 25px;
       }
-
       @include mq(la) {
         font-size: 26px;
       }
-
       @include mq(xl) {
         font-size: 28px;
       }
@@ -651,7 +708,6 @@ body {
     @include mq(md) {
       max-width: 700px;
     }
-
     img {
       border-radius: 10px;
     }
@@ -667,6 +723,9 @@ body {
     padding-inline: 30px;
   }
 
+  &__inner {
+  }
+
   &__contents {
     border: 4px solid #f7e6ec;
     padding-top: 25px;
@@ -679,6 +738,13 @@ body {
       padding-left: 60px;
       padding-right: 60px;
     }
+
+    // @include mq(la) {
+    //   padding-top: 32px;
+    //   padding-right: 48px;
+    //   padding-bottom: 44px;
+    //   padding-left: 48px;
+    // }
   }
 
   &__table {
@@ -696,7 +762,12 @@ body {
   }
 
   &__table__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     gap: 8px;
     padding-top: 12px;
@@ -712,15 +783,29 @@ body {
       padding-bottom: 0;
       border: none;
     }
+    // @include mq(la) {
+    //   -webkit-box-orient: horizontal;
+    //   -webkit-box-direction: normal;
+    //   -ms-flex-direction: row;
+    //   flex-direction: row;
+    //   gap: 20px;
+    //   padding-top: 12px;
+    //   padding-bottom: 12px;
+    //   padding-left: 16px;
+    // }
   }
 
   &__table__header,
   &__table__data {
+    text-align: left;
+    vertical-align: middle;
+
     a {
       color: $main-color;
       transition: color 0.3s;
 
       &:hover {
+        color: $main-color;
         opacity: 0.6;
       }
     }
@@ -744,6 +829,28 @@ body {
       height: 17px;
       margin-right: 5px;
     }
+    // &::before {
+    //   position: absolute;
+    //   top: 50%;
+    //   left: -5px;
+    //   width: 8px;
+    //   height: 8px;
+    //   content: "";
+    //   // background: url(../img/Q_icon.png) no-repeat center center / contain;
+    //   background-color: #9ed0e0;
+    //   border-radius: 50%;
+    //   -webkit-transform: translateY(-50%);
+    //   transform: translateY(-50%);
+    // }
+    // @include mq(sm) {
+    //   font-size: 16px;
+    // }
+    // @include mq(la) {
+    //   -webkit-box-flex: 1;
+    //   -ms-flex-positive: 1;
+    //   flex-grow: 1;
+    //   width: 188px;
+    // }
   }
 
   &__table__data {
@@ -754,16 +861,19 @@ body {
 }
 
 /* ーーーーーーーー　contact　ーーーーーーーー */
-
 .contact {
   padding-top: 60px;
   padding-bottom: 80px;
   background: #f7e6ec;
 
+  &__inner {
+  }
   &__contents {
     text-align: center;
     @include mq(md) {
     }
+  }
+  &__title-box {
   }
 
   &__copy {
@@ -791,7 +901,7 @@ body {
       color: $main-color;
       font-family: $font-family-en;
       font-weight: 400;
-      line-height: 56.288px;
+      line-height: 56.288px; /* 71.818% */
       letter-spacing: 3.527px;
       font-size: 57px;
       margin-top: 10px;
@@ -831,12 +941,10 @@ body {
       gap: 40px;
       justify-content: center;
     }
-
     @include mq(la) {
       gap: 50px;
       margin-top: 37px;
     }
-
     @include mq(xl) {
       gap: 70px;
       margin-top: 47px;
@@ -846,10 +954,15 @@ body {
   &__course {
     width: 230px;
     position: relative;
+    @include mq(md) {
+      transition: opacity 0.3s;
 
+      &:hover {
+        opacity: 0.7;
+      }
+    }
     img {
       width: 230px;
-
       @include mq(md) {
         width: 330px;
       }
@@ -876,6 +989,7 @@ body {
     left: -19px;
 
     @include mq(md) {
+      // position: absolute;
       color: #fcfcfc;
       display: flex;
       text-align: center;
@@ -921,11 +1035,9 @@ body {
         margin-top: 75px;
         font-size: 25px;
       }
-
       @include mq(la) {
         font-size: 26px;
       }
-
       @include mq(xl) {
         margin-top: 80px;
         padding: 20px 70px;
@@ -936,18 +1048,23 @@ body {
 }
 
 /* ーーーーーーーーfooter　ーーーーーーーー */
-
 .footer {
   padding-top: 30px;
   padding-bottom: 30px;
   padding-inline: 10px;
-
   @include mq(md) {
     padding-inline: 0;
     padding-top: 45px;
     max-width: 1140px;
     margin-inline: auto;
     height: 200px;
+  }
+
+  &__inner {
+    @include mq(md) {
+    }
+  }
+  &__contents {
   }
 
   &__left {
@@ -970,28 +1087,28 @@ body {
   &__logo {
     display: inline-block;
     position: relative;
+    a {
+      img {
+        width: 80px;
+        display: block; /* 余計な隙間ができないようにあててある */
 
-    img {
-      width: 80px;
-      display: block; /* 余計な隙間ができないようにあててある */
-      transition: opacity 0.3s;
-
-      &:hover {
-        opacity: 0.5;
-      }
-
-      @include mq(md) {
-        width: 90px;
+        @include mq(md) {
+          width: 90px;
+          transition: opacity 0.3s;
+          &:hover {
+            opacity: 0.6;
+          }
+        }
       }
     }
   }
-
+  &__center {
+  }
   &__na-list {
     @include mq(md) {
       display: flex;
     }
   }
-
   &__nav-list {
     @include mq(md) {
       gap: 20px;
@@ -1033,13 +1150,14 @@ body {
   }
 
   &__sns-icon {
+    @include mq(md) {
+      transition: opacity 0.3s;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
     img {
       width: 20px;
-      transition: opacity 0.3s;
-
-      &:hover {
-        opacity: 0.5;
-      }
     }
   }
 
@@ -1059,14 +1177,13 @@ body {
     }
   }
 }
-
 /* ーーーーーーーー　pagetop　ーーーーーーーーーーーーーー*/
-
 .pagetop {
   position: fixed;
-  right: 15px;
-  bottom: 15px;
-  width: min(calc(30px / 375px * 100%), 30px);
+  right: 10px;
+  bottom: 10px;
+  width: min(calc(50px / 375px * 100%), 50px); /* 画像の大きさ */
+  /* 画像の大きさを割合で出し、５０px以下には小さくならないように設定している */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
@@ -1076,13 +1193,26 @@ body {
     visibility: visible;
 
     @include mq(md) {
-      width: min(calc(35px / 768px * 100%), 35px);
-      right: 25px;
-      bottom: 25px;
+      right: 20px;
+      bottom: 20px;
     }
   }
+  /* &.is-show はjQと連動してる。スクロールに合わせてトップへ
+ 戻るボタンを表示するようにしている.これをしないとTOPページにいるのに、
+ TOPページへ戻るアイコンが表示されてしまうので、TOPページ内で100pxスクロールされたら
+ 戻るアイコンが表示されるようにCSSとjQでコードが書いてある */
 
   &__icon {
-    width: 35px;
+    width: 40px;
   }
+  // @include mq(pc) {
+  //   right: 16px;
+  //   bottom: 30px;
+  // }
+  // img {
+  //   width: 50px;
+  //   @include mq(pc) {
+  //     width: 76px;
+  //   }
+  // }
 }
