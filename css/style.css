@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* mqとはmediaーqueryの略 */
+
 body {
   font-size: 16px;
   color: #333;
@@ -7,8 +7,9 @@ body {
 }
 
 /*ーーーーーーーー　共通項目　ーーーーーーーー */
+
 .inner {
-  padding-inline: 15px; /* paddingの左右　padding-inline:*/
+  padding-inline: 15px;
 }
 @media screen and (min-width: 768px) {
   .inner {
@@ -21,7 +22,7 @@ body {
 
 .heading {
   font-size: 20px;
-  line-height: 100%; /* 44px */
+  line-height: 100%;
   letter-spacing: 1.1px;
   text-align: center;
   padding-bottom: 50px;
@@ -31,9 +32,11 @@ body {
   text-underline-offset: 10px;
   text-decoration-skip-ink: none;
 }
+
 .heading--type2 {
   text-decoration: underline solid #fff 4px;
 }
+
 @media screen and (min-width: 768px) {
   .heading {
     font-size: 25px;
@@ -41,6 +44,7 @@ body {
 }
 
 /*ーーーーーーーー　ボタン共通　ーーーーーーー  */
+
 .button {
   display: inline-block;
   font-weight: 300;
@@ -53,16 +57,19 @@ body {
   letter-spacing: 1px;
   transition: background-color 0.3s, color 0.3s;
 }
+
 .button:hover {
   background-color: #fff;
   color: #d65180;
   border: 1px solid #d65180;
 }
+
 .button--type2 {
   background-color: #fff;
   color: #d65180;
   font-weight: 600;
 }
+
 .button:hover {
   background-color: #d65180;
   color: #fff;
@@ -72,6 +79,7 @@ body {
 /*--------------------------------
  スクロールエフェクト
 ---------------------------------*/
+
 .fadeUpEffect {
   opacity: 0;
 }
@@ -93,7 +101,9 @@ body {
     transform: translateY(0);
   }
 }
+
 /* ーーーーーーーー　header　ーーーーーーーー */
+
 .header {
   padding: 15px 25px;
 }
@@ -104,34 +114,42 @@ body {
     height: 90px;
   }
 }
+
 .header__inner {
   display: flex;
   justify-content: space-between;
   vertical-align: middle;
 }
+
 @media screen and (min-width: 768px) {
   .header__logo {
     transition: opacity 0.3s;
   }
+
   .header__logo:hover {
     opacity: 0.6;
   }
 }
+
 .header__logo img {
   width: 80px;
   display: block; /* 余計な隙間ができないようにあててある */
 }
+
 @media screen and (min-width: 768px) {
   .header__logo img {
     width: 90px;
   }
 }
+
 .header__nav {
   display: flex;
 }
+
 .header__nav-list {
   display: none;
 }
+
 @media screen and (min-width: 768px) {
   .header__nav-list {
     display: flex;
@@ -139,11 +157,13 @@ body {
     gap: 20px;
   }
 }
+
 @media screen and (min-width: 1200px) {
   .header__nav-list {
     gap: 40px;
   }
 }
+
 .header__nav-link {
   color: #333;
   font-size: 15px;
@@ -151,23 +171,28 @@ body {
   letter-spacing: 1px;
   transition: color 0.3s;
 }
+
 .header__nav-link:hover {
   color: #d65180;
 }
+
 .header__open {
   padding-top: 5px;
 }
+
 .header .drawer-icon {
   position: relative;
-  width: 36px; /* :widthとheightを削除しても崩れなかった..... */
-  height: 18px; /* :widthとheightを削除しても崩れなかった..... */
+  width: 36px;
+  height: 18px;
   top: 18px;
 }
+
 @media screen and (min-width: 768px) {
   .header .drawer-icon {
     display: none;
   }
 }
+
 .header .drawer-icon__bar {
   position: absolute;
   top: 0;
@@ -176,53 +201,61 @@ body {
   height: 3px;
   border-radius: 6px;
   background: #333;
-  z-index: 51; /* 240行目の.drawer-contentsより前に表示させたかったのでz-index*/
+  z-index: 51;
   transition: transform 0.3s linear, top 0.3s linear;
-  /* :nth-of-typeは親要素のブロックの中で、何番目に現れるかという疑似要素 */
-  /* 似たような指定として「:nth-child」がある。こちらは要素を指定しない。今回はどちらを使ってもOK! */
 }
+
 .header .drawer-icon__bar:nth-of-type(2) {
   top: 9px;
 }
+
 .header .drawer-icon__bar:nth-of-type(3) {
   top: 18px;
 }
+
 @media screen and (min-width: 768px) {
   .header .drawer-icon__bar {
     background: #d65180;
   }
 }
+
 .header .is-checked .drawer-icon__bar:nth-of-type(1) {
   transform: rotate(30deg);
   top: 10px;
 }
+
 .header .is-checked .drawer-icon__bar:nth-of-type(2) {
   display: none;
 }
+
 .header .is-checked .drawer-icon__bar:nth-of-type(3) {
   transform: rotate(-30deg);
   top: 10px;
 }
 
 /*ーーーーーーーー　drawer　ーーーーーーー  */
+
 .drawer-contents {
   width: 320px;
   height: 100%;
-  position: fixed; /* :固定して浮かせるイメージ */
+  position: fixed;
   top: 0;
   right: 0;
   background: #d65180;
-  z-index: 50; /* 重なり順を制御したいので「z-index」 */
-  padding: 80px 40px 40px; /* 今回は下のpaddingは必要ないけど仮で数字を入れてる状態 */
+  z-index: 50;
+  padding: 80px 40px 40px;
   transform: translateX(100%);
   transition: transform 0.3s;
 }
+
 .drawer-contents.is-checked {
   transform: translateX(0);
 }
+
 .drawer-contents ul {
   margin-top: 10px;
 }
+
 .drawer-contents .header__nav-link {
   padding-bottom: 20px;
   display: flex;
@@ -234,62 +267,71 @@ body {
   letter-spacing: 1px;
   transition: color 0.3s;
 }
+
 .drawer-contents .header__nav-link:hover {
   color: #333;
 }
+
 .drawer-contents__button {
   margin-top: 14px;
   text-align: right;
 }
 
 /* ーーーーーーーー　main-visual　ーーーーーーーー */
+
 .main-visual {
   width: 100%;
   position: relative;
   height: 470px;
   background: url(../img/sp_fv.jpg) no-repeat center center/cover;
-  /*背景画像のサイズ指定 画像幅が足りなくて左右余白ができたので、幅に画像の大きさを合わせるとき使う*/
 }
+
 @media screen and (min-width: 768px) {
   .main-visual {
     height: 600px;
     background: url(../img/mainvisual.jpg) no-repeat center center/cover;
   }
 }
+
 .main-visual__title {
   text-align: center;
   padding-top: 150px;
 }
+
 @media screen and (min-width: 768px) {
   .main-visual__title {
     padding-top: 170px;
   }
 }
+
 .main-visual__copy {
   font-size: 18px;
   color: #d65180;
   font-family: "Noto Serif JP", sans-serif;
   font-weight: 500;
-  line-height: 100%; /* 44px */
+  line-height: 100%;
   letter-spacing: 1.1px;
 }
+
 @media screen and (min-width: 768px) {
   .main-visual__copy {
     font-size: 30px;
   }
 }
+
 @media screen and (min-width: 768px) {
   .main-visual__main {
     color: #d65180;
   }
 }
+
 .main-visual__main .en {
   display: block;
   color: #d65180;
   font-family: "Abhaya Libre", serif;
   font-size: 67px;
   font-weight: 400;
-  line-height: 63.5%; /* 107.95px */
+  line-height: 63.5%;
   margin-top: 33px;
 }
 @media screen and (min-width: 768px) {
@@ -316,30 +358,36 @@ body {
 }
 
 /* ーーーーーーーー　Feature-pointーーーーーーーー */
+
 .feature-point {
   padding-top: 60px;
   padding-bottom: 60px;
   background: linear-gradient(180deg, rgba(234, 232, 232, 0.14) 0%, #f8f8f8 50%, #f5f5f5 100%);
 }
+
 @media screen and (min-width: 768px) {
   .feature-point {
     padding-top: 60px;
   }
 }
+
 .feature-point__inner {
   padding-inline: 20px;
 }
+
 @media screen and (min-width: 768px) {
   .feature-point__inner {
     max-width: 1310px;
     padding-inline: 15px;
   }
 }
+
 .feature-point__cards {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
+
 @media screen and (min-width: 768px) {
   .feature-point__cards {
     flex-direction: row;
@@ -347,44 +395,53 @@ body {
     gap: 30px;
   }
 }
+
 .feature-point figure {
   margin: 0;
   margin-inline: auto;
   border-radius: 10px;
   background-color: #f7e6ec;
 }
+
 @media screen and (min-width: 768px) {
   .feature-point figure {
     margin-inline: 0;
     width: 360px;
   }
+
   .feature-point figure:hover .figcaption__image img {
     transform: scale(1.1);
   }
 }
+
 .feature-point figure .figcaption__image {
   margin-bottom: 15px;
 }
+
 @media screen and (min-width: 768px) {
   .feature-point figure .figcaption__image {
-    overflow: hidden; /* ②imgが1.1倍に拡大するようにしてるが、imageの枠から、はみ出ないように指示してる */
+    overflow: hidden;
   }
   .feature-point figure .figcaption__image img {
-    transition: transform 0.5s; /* ③imgを動かしたいのでimgに指示する */
+    transition: transform 0.5s;
   }
 }
+
 .feature-point figure .figcaption__image img {
   border-radius: 10px 10px 0px 0px;
 }
+
 .feature-point figure figcaption {
   padding-bottom: 25px;
   padding-inline: 20px;
 }
+
 @media screen and (min-width: 768px) {
   .feature-point figure figcaption {
     padding-inline: 15px;
   }
 }
+
 .feature-point figure .figcaption__title {
   color: #d65180;
   text-align: center;
@@ -392,11 +449,12 @@ body {
   font-weight: 600;
   letter-spacing: 1px;
 }
+
 .feature-point figure .figcaption__text {
   text-align: justify;
   margin-top: 10px;
   font-size: 14px;
-  line-height: 166%; /* 24.9px */
+  line-height: 166%;
 }
 
 /* ーーーーーーーー　コース　ーーーーーーーー */
@@ -405,32 +463,39 @@ body {
   padding-bottom: 70px;
   background: #fff;
 }
+
 @media screen and (min-width: 768px) {
   .course {
     padding-top: 60px;
   }
 }
+
 .course__inner {
   padding-inline: 30px;
 }
+
 @media screen and (min-width: 768px) {
   .course__inner {
     padding-inline: 50px;
   }
 }
+
 @media screen and (min-width: 900px) {
   .course__inner {
     padding-inline: 70px;
   }
 }
+
 @media screen and (min-width: 768px) {
   .course__list {
     margin-top: 10px;
   }
 }
+
 .course__item {
   padding: 0 0 60px;
 }
+
 @media screen and (min-width: 768px) {
   .course__item {
     align-items: center;
@@ -438,37 +503,45 @@ body {
     margin-top: 40px;
   }
 }
+
 @media screen and (min-width: 768px) {
   .course__item:nth-child(2n) {
     flex-direction: row-reverse;
     gap: 5px;
   }
 }
+
 .course__image {
   position: relative;
   width: 100%;
 }
+
 @media screen and (min-width: 768px) {
   .course__image {
     width: 55%;
   }
 }
+
 .course img {
   border-radius: 10px;
 }
+
 .course__depiction {
   text-align: center;
   margin-top: 25px;
 }
+
 @media screen and (min-width: 768px) {
   .course__depiction {
     margin-top: 24px;
     width: 45%;
   }
 }
+
 .course__flower-number {
   text-align: center;
 }
+
 .course__flower-number .flower-number {
   margin-top: 8px;
   display: inline-flex;
@@ -483,6 +556,7 @@ body {
   font-weight: 500;
   letter-spacing: 1.5px;
 }
+
 @media screen and (min-width: 768px) {
   .course__flower-number .flower-number {
     padding: 2px 35px;
@@ -498,9 +572,11 @@ body {
   letter-spacing: 1px;
   line-height: 1.2;
 }
+
 .course__name-black {
   color: #333;
 }
+
 @media screen and (min-width: 768px) {
   .course__name {
     font-size: 45px;
@@ -509,27 +585,32 @@ body {
     margin-bottom: 16px;
   }
 }
+
 @media screen and (min-width: 900px) {
   .course__name {
     font-size: 48px;
   }
 }
+
 @media screen and (min-width: 1200px) {
   .course__name {
     font-size: 50px;
   }
 }
+
 .course__name .first-order {
   display: block;
   font-weight: 600;
   font-size: 14px;
   margin-bottom: 3px;
 }
+
 @media screen and (min-width: 768px) {
   .course__price-box {
     margin-top: 5px;
   }
 }
+
 .course__price-box .price {
   color: #000;
   font-family: "Inter", sans-serif;
@@ -538,32 +619,39 @@ body {
   letter-spacing: 1px;
   line-height: 1;
 }
+
 @media screen and (min-width: 768px) {
   .course__price-box .price {
     font-size: 30px;
   }
 }
+
 .course__price-box .yen,
 .course__price-box .number-times {
   font-size: 20px;
   font-weight: 600;
 }
+
 .course__price-box .slash {
   font-size: 20px;
   font-weight: 600;
 }
+
 .course .postage-tax {
   letter-spacing: 1.5px;
   font-weight: 600;
 }
+
 .course__button {
   text-align: center;
 }
+
 @media screen and (min-width: 768px) {
   .course__button {
     margin-top: 70px;
   }
 }
+
 .course__button .button {
   margin-top: 10px;
   display: inline-flex;
@@ -578,22 +666,26 @@ body {
   letter-spacing: 1.76px;
   transition: background-color 0.3s, color 0.3s;
 }
+
 .course__button .button:hover {
   background-color: #fff;
   color: #d65180;
   border: 1px solid #d65180;
 }
+
 @media screen and (min-width: 768px) {
   .course__button .button {
     padding: 20px 86px;
     font-size: 25px;
   }
 }
+
 @media screen and (min-width: 900px) {
   .course__button .button {
     font-size: 26px;
   }
 }
+
 @media screen and (min-width: 1200px) {
   .course__button .button {
     font-size: 28px;
@@ -601,15 +693,18 @@ body {
 }
 
 /* ーーーーーーーー　slide　ーーーーーーーー */
+
 .gallery {
   padding-top: 50px;
   padding-bottom: 60px;
   background: #f7e6ec;
 }
+
 .gallery .inner {
   margin-inline: auto;
   max-width: 300px;
 }
+
 @media screen and (min-width: 768px) {
   .gallery .inner {
     max-width: 700px;
@@ -620,14 +715,17 @@ body {
 }
 
 /* ーーーーーーーー　faq　ーーーーーーーー */
+
 .faq {
   padding-block: 60px;
 }
+
 @media screen and (min-width: 768px) {
   .faq {
     padding-inline: 30px;
   }
 }
+
 .faq__contents {
   border: 4px solid #f7e6ec;
   padding-top: 25px;
@@ -636,25 +734,30 @@ body {
   padding-left: 30px;
   border-radius: 10px;
 }
+
 @media screen and (min-width: 768px) {
   .faq__contents {
     padding-left: 60px;
     padding-right: 60px;
   }
 }
+
 .faq__table {
   margin-top: 24px;
 }
+
 @media screen and (min-width: 900px) {
   .faq__table {
     margin-block: 20px;
   }
 }
+
 .faq__table-box {
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
 }
+
 .faq__table__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -669,25 +772,33 @@ body {
   text-align: left;
   border-bottom: 1px solid #cccccc;
 }
+
 .faq__table__row:first-child {
   padding-top: 0;
 }
+
 .faq__table__row:last-child {
   padding-bottom: 0;
   border: none;
 }
-.faq__table__header, .faq__table__data {
+.faq__table__header,
+.faq__table__data {
   text-align: left;
   vertical-align: middle;
 }
-.faq__table__header a, .faq__table__data a {
+
+.faq__table__header a,
+.faq__table__data a {
   color: #d65180;
   transition: color 0.3s;
 }
-.faq__table__header a:hover, .faq__table__data a:hover {
+
+.faq__table__header a:hover,
+.faq__table__data a:hover {
   color: #d65180;
   opacity: 0.6;
 }
+
 .faq__table__header {
   position: relative;
   height: 100%;
@@ -697,6 +808,7 @@ body {
   width: 100%;
   font-size: 16px;
 }
+
 .faq__table__header .q-icon {
   position: absolute;
   display: inline-block;
@@ -706,6 +818,7 @@ body {
   height: 17px;
   margin-right: 5px;
 }
+
 .faq__table__data {
   width: 100%;
   font-size: 15px;
@@ -713,14 +826,17 @@ body {
 }
 
 /* ーーーーーーーー　contact　ーーーーーーーー */
+
 .contact {
   padding-top: 60px;
   padding-bottom: 80px;
   background: #f7e6ec;
 }
+
 .contact__contents {
   text-align: center;
 }
+
 .contact__copy {
   font-size: 18px;
   color: #d65180;
@@ -729,11 +845,13 @@ body {
   line-height: 100%;
   letter-spacing: 1.1px;
 }
+
 @media screen and (min-width: 768px) {
   .contact__copy {
     font-size: 25px;
   }
 }
+
 @media screen and (min-width: 768px) {
   .contact__main {
     margin-top: 18px;
@@ -741,6 +859,7 @@ body {
     justify-content: center;
   }
 }
+
 .contact__main .en {
   display: inline-block;
   color: #d65180;
@@ -751,11 +870,13 @@ body {
   font-size: 57px;
   margin-top: 10px;
 }
+
 @media screen and (min-width: 768px) {
   .contact__main .en {
     font-size: 67px;
   }
 }
+
 .contact__main .ja {
   display: inline-block;
   color: #d65180;
@@ -766,12 +887,14 @@ body {
   line-height: 89%;
   letter-spacing: 1.425px;
 }
+
 @media screen and (min-width: 768px) {
   .contact__main .ja {
     font-size: 48px;
     line-height: 140%;
   }
 }
+
 .contact__3contens {
   display: flex;
   flex-direction: column;
@@ -779,6 +902,7 @@ body {
   margin-top: 40px;
   align-items: center;
 }
+
 @media screen and (min-width: 768px) {
   .contact__3contens {
     margin-top: 27px;
@@ -787,38 +911,46 @@ body {
     justify-content: center;
   }
 }
+
 @media screen and (min-width: 900px) {
   .contact__3contens {
     gap: 50px;
     margin-top: 37px;
   }
 }
+
 @media screen and (min-width: 1200px) {
   .contact__3contens {
     gap: 70px;
     margin-top: 47px;
   }
 }
+
 .contact__course {
   width: 230px;
   position: relative;
 }
+
 @media screen and (min-width: 768px) {
   .contact__course {
     transition: opacity 0.3s;
   }
+
   .contact__course:hover {
     opacity: 0.7;
   }
 }
+
 .contact__course img {
   width: 230px;
 }
+
 @media screen and (min-width: 768px) {
   .contact__course img {
     width: 330px;
   }
 }
+
 .contact__speech-bubble {
   position: absolute;
   color: #fcfcfc;
@@ -838,6 +970,7 @@ body {
   top: -22px;
   left: -19px;
 }
+
 @media screen and (min-width: 768px) {
   .contact__speech-bubble {
     color: #fcfcfc;
@@ -858,6 +991,7 @@ body {
     left: -14px;
   }
 }
+
 .contact__button .button {
   margin-top: 60px;
   display: inline-block;
@@ -872,11 +1006,13 @@ body {
   color: #fff;
   transition: background-color 0.3s, color 0.3s;
 }
+
 .contact__button .button:hover {
   background-color: #fff;
   color: #d65180;
   border: 1px solid #d65180;
 }
+
 @media screen and (min-width: 768px) {
   .contact__button .button {
     padding: 20px 75px;
@@ -884,11 +1020,13 @@ body {
     font-size: 25px;
   }
 }
+
 @media screen and (min-width: 900px) {
   .contact__button .button {
     font-size: 26px;
   }
 }
+
 @media screen and (min-width: 1200px) {
   .contact__button .button {
     margin-top: 80px;
@@ -898,11 +1036,13 @@ body {
 }
 
 /* ーーーーーーーーfooter　ーーーーーーーー */
+
 .footer {
   padding-top: 30px;
   padding-bottom: 30px;
   padding-inline: 10px;
 }
+
 @media screen and (min-width: 768px) {
   .footer {
     padding-inline: 0;
@@ -912,17 +1052,20 @@ body {
     height: 200px;
   }
 }
+
 .footer__left {
   display: flex;
   gap: 10px;
   flex-direction: column;
 }
+
 @media screen and (min-width: 768px) {
   .footer__left {
     align-items: center;
     gap: 30px;
   }
 }
+
 @media screen and (min-width: 900px) {
   .footer__left {
     flex-direction: row;
@@ -930,28 +1073,34 @@ body {
     justify-content: space-between;
   }
 }
+
 .footer__logo {
   display: inline-block;
   position: relative;
 }
+
 .footer__logo a img {
   width: 80px;
   display: block; /* 余計な隙間ができないようにあててある */
 }
+
 @media screen and (min-width: 768px) {
   .footer__logo a img {
     width: 90px;
     transition: opacity 0.3s;
   }
+
   .footer__logo a img:hover {
     opacity: 0.6;
   }
 }
+
 @media screen and (min-width: 768px) {
   .footer__na-list {
     display: flex;
   }
 }
+
 @media screen and (min-width: 768px) {
   .footer__nav-list {
     gap: 20px;
@@ -959,6 +1108,7 @@ body {
     align-items: center;
   }
 }
+
 .footer__nav-link {
   margin-left: 3px;
   margin-bottom: 3px;
@@ -967,52 +1117,63 @@ body {
   letter-spacing: 1px;
   transition: color 0.3s;
 }
+
 .footer__nav-link:hover {
   color: #d65180;
 }
+
 @media screen and (min-width: 768px) {
   .footer__nav-link {
     margin-bottom: 0;
     font-size: 15px;
   }
 }
+
 .footer__right {
   position: absolute;
   right: 25px;
   margin-top: 15px;
 }
+
 @media screen and (min-width: 768px) {
   .footer__right {
     position: static;
   }
 }
+
 .footer__sns-list {
   display: flex;
   gap: 10px;
 }
+
 @media screen and (min-width: 768px) {
   .footer__sns-icon {
     transition: opacity 0.3s;
   }
+
   .footer__sns-icon:hover {
     opacity: 0.6;
   }
 }
+
 .footer__sns-icon img {
   width: 20px;
 }
+
 .footer__copy {
   margin-top: 20px;
   color: #faccdc;
   text-align: center;
   font-size: 12px;
 }
+
 @media screen and (min-width: 768px) {
   .footer__copy {
     margin-top: 30px;
     margin-bottom: 20px;
   }
 }
+
 @media screen and (min-width: 900px) {
   .footer__copy {
     margin-top: 70px;
@@ -1020,6 +1181,7 @@ body {
 }
 
 /* ーーーーーーーー　pagetop　ーーーーーーーーーーーーーー*/
+
 .pagetop {
   position: fixed;
   right: 10px;
@@ -1029,21 +1191,20 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
-  /* &.is-show はjQと連動してる。スクロールに合わせてトップへ
-  戻るボタンを表示するようにしている.これをしないとTOPページにいるのに、
-  TOPページへ戻るアイコンが表示されてしまうので、TOPページ内で100pxスクロールされたら
-  戻るアイコンが表示されるようにCSSとjQでコードが書いてある */
 }
+
 .pagetop.is-show {
   opacity: 1;
   visibility: visible;
 }
+
 @media screen and (min-width: 768px) {
   .pagetop.is-show {
     right: 20px;
     bottom: 20px;
   }
 }
+
 .pagetop__icon {
   width: 40px;
 }
